@@ -8,23 +8,25 @@ public class MergeSortedArrays {
     final public int[] nums2 = {2, 5, 6};
 
     public int[] getMergeOfArrays(int[] nums1, int[] nums2, int m, int n) {
+        // getting last item of nums1 [index]
+        // lastItem is the '0' ELEMENT to be replaced/merged
+        int lastItem = (m + n) - 1;
 
-        //
-            for (int i = m - 1; i < nums1.length; i++) {
-                for (int j = 0; j < nums2.length; j++) {
-                    int lastItem = nums1[i]; // 3
-                    int comingItem = nums2[j]; // 5
-
-                    // check if lastItem is greater than coming item
-                    if (lastItem >= comingItem) {
-                        nums1[i + 1] = lastItem;
-                        nums1[i] = comingItem;
-                    } else {
-                        nums1[i] = lastItem;
-                        nums1[i+1] = comingItem;
-                    }
-                }
+        // strategy: merging backwards
+        while (m > 0 && n > 0) {
+            // coming element from nums2 is smaller/lesser than last actual item from nums1, then move nums1's last item to the final position
+            if (nums1[m-1] > nums2[n-1]) {
+                nums1[lastItem] = nums1[m-1];
+                m -= 1;
             }
+            else {
+                nums1[lastItem] = nums2[n-1];
+                n -= 1;
+            }
+            lastItem -= 1;
+        }
+
+
         return nums1;
     }
 }
