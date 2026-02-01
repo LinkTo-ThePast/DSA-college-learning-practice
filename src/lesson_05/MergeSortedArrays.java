@@ -8,6 +8,11 @@ public class MergeSortedArrays {
     final public int[] nums2 = {2, 5, 6};
 
     public int[] getMergeOfArrays(int[] nums1, int[] nums2, int m, int n) {
+
+        if (m == 0 && n == 0) {
+            return new int[]{};
+        }
+
         // getting last item of nums1 [index]
         // lastItem is the '0' ELEMENT to be replaced/merged
         int lastItem = (m + n) - 1;
