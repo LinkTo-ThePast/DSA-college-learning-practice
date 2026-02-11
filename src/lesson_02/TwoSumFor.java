@@ -1,35 +1,27 @@
 package lesson_02;
 
 public class TwoSumFor {
-
-    // attributes
-    int[] nums;
-    int target;
-
     // methods
-    public int[] getIndices(int[] nums, int target) {
+    public int[] getIndices(int[] arr, int target) {
 
-        // check invalid input array
-        if (nums.length == 0) {
-            // return an empty array
+        // 1. assure we actually have items on arr
+        if (arr.length == 0) {
             return new int[]{};
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            // check for current value ( i = left pointer )
-            int leftPointer = nums[i];
-            // establish right pointer
-            for (int j = i+1; j < nums.length; j++) {
-                int rightPointer = nums[j];
+        // iterate over array
+        for (int i = 0; i < arr.length; i++) {
+            int left_pointer = arr[i];
+            for (int j = i + 1; j < arr.length; j++) {
+                int right_pointer = arr[j];
 
-                // check if sum result on target
-                if (leftPointer + rightPointer == target) {
-                    return new int[] {i,j};
+                if (left_pointer + right_pointer == target) {
+                    return new int[]{i,j};
                 }
             }
         }
 
-        // no solution found, return an empty array
+        // no solution found
         return new int[]{};
     }
 }
