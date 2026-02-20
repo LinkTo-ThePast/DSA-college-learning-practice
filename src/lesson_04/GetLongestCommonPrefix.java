@@ -3,33 +3,37 @@ package lesson_04;
 public class GetLongestCommonPrefix {
     // {'catapult', 'cat', 'catastrophic'}
     public String getCommonLongestPrefix(String[] words) {
+        // if no items in the input array, then return an empty string
         if (words.length == 0) {
             return "";
         }
 
-        // break condition
-        boolean isMismatch = false;
-        // stopping index == i; words[0] get -> chars from (0,i)
+        // initialize stopping index outside both loops
         int stoppingIndex = 0;
-        // decision: arbitrary string to compare with the rest of the strings: words[0]
-        // outer loop: iterate over arbitrary string ['c'] --> lock up character
+        // initialize boolean flag to stop outer loop
+        boolean shouldStop = false;
+        // selection an arbitrary string to compare with the rest of the strings
+        // outer loop definition: c = 0 -> 'c' ; c = 1 -> a : c = 2 -> 't'
         for (int c = 0; c < words[0].length(); c++) {
-            if (isMismatch) {
+
+            // check for boolean flag to decide if continue with iterations
+            if (shouldStop) {
                 break;
             }
-            // let's check on every character for every string
-            char currentArbitraryChar = words[0].charAt(c);
-            // inner loop: verify if the locked up char is the same in every word
+            // inner loop definition:
             for (int s = 0; s < words.length; s++) {
-                if (c == words[s].length() || words[s].charAt(c) != currentArbitraryChar) {
-                    isMismatch = true;
-                    stoppingIndex -= 1;
+                //  c -> 'c' -> [0: 'c' == 'c', 1: 'c' == 'c' ; 2: 'c' == 'c']
+                // c = 3 , 3 >= 3 -> break
+                if (c >= words[s].length() || (words[s].charAt(c) != words[0].charAt(c))) {
+                    stoppingIndex-= 1;
+                    shouldStop = true;
                     break;
                 }
             }
-            // if inner loops didn't  break, then update stopping index equal to i;
-            stoppingIndex = c;
+            // 'c' -> [0,1,2]
+            stoppingIndex += 1;
         }
-        return words[0].substring(0,stoppingIndex);
-    }
+
+        return words[0].substring(0, stoppingIndex);
+}
 }
