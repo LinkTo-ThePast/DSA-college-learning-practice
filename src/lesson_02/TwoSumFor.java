@@ -1,27 +1,35 @@
 package lesson_02;
 
 public class TwoSumFor {
-    // methods
-    public int[] getIndices(int[] arr, int target) {
 
-        // 1. assure we actually have items on arr
-        if (arr.length == 0) {
+    private int[] nums;
+    private int target;
+
+    public int[] twoSum(int[] nums, int target) {
+        // case 1. nums is empty or just one element, then early return
+        if (nums.length <= 1 ) {
             return new int[]{};
         }
 
-        // iterate over array
-        for (int i = 0; i < arr.length; i++) {
-            int left_pointer = arr[i];
-            for (int j = i + 1; j < arr.length; j++) {
-                int right_pointer = arr[j];
-
-                if (left_pointer + right_pointer == target) {
-                    return new int[]{i,j};
+        // case 2. general case
+        // base case: nums = [2,4,5,1,6], target = 6
+        for(int i = 0; i < nums.length; i++) {
+            // left pointer = i
+            int leftPointer = nums[i];
+            System.out.println(nums[i]);
+            // second or right pointer is j
+            for (int j = i + 1; j < nums.length; j++) {
+                int rightPointer = nums[j];
+                System.out.println(nums[j]);
+                System.out.println("Adding up: " + nums[i] + " + " + nums[j]);
+                System.out.println("Indices: " + i + j);
+                if (leftPointer + rightPointer != target) {
+                    continue;
                 }
+                return new int[]{i,j};
             }
         }
 
-        // no solution found
+        // case 3. any solution was found, return an empty array
         return new int[]{};
-    }
-}
+}}
