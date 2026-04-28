@@ -14,5 +14,11 @@ public class BinarySearch {
             throw new IllegalArgumentException("The sorted arrays needs to have at least one item. The array length provided was: " + sorted_array.length);
         }
 
+        // select lowest possible value
+        int lowestValue = sorted_array[0];
+        // select maximum possible value
+        int maximumValue = sorted_array[sorted_array.length - 1];
+
+
     }
 }
