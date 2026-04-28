@@ -14,10 +14,21 @@ public class BinarySearch {
             throw new IllegalArgumentException("The sorted arrays needs to have at least one item. The array length provided was: " + sorted_array.length);
         }
 
-        // select lowest possible value
-        int lowestValue = sorted_array[0];
+        // lowest item in the array
+        int lowValue = 0; // representing index 0 of the array
         // select maximum possible value
-        int maximumValue = sorted_array[sorted_array.length - 1];
+        int highValue = sorted_array[sorted_array.length - 1];
+
+        // search through in the middle of the array
+        int middleValue = Math.floorDiv(highValue + lowValue, 2);
+
+        // begin to search
+        //  1st case: middleValue is less than the item, then update the lowest value so now can be more than previous middleValue
+        if (middleValue < item) {
+            lowValue = middleValue + 1;
+        }
+
+
 
 
     }
