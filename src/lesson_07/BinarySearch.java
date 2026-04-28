@@ -17,18 +17,10 @@ public class BinarySearch {
         // lowest item in the array
         int lowValue = 0; // representing index 0 of the array
         // select maximum possible value
-        int highValue = sorted_array[sorted_array.length - 1];
+        int highValue = sorted_array.length - 1;
 
         // search through in the middle of the array
         int middleValue = Math.floorDiv(highValue + lowValue, 2);
-
-        // begin to search
-        //  1st case: middleValue is less than the item, then update the lowest value so now can be more than previous middleValue
-        if (middleValue < item) {
-            lowValue = middleValue + 1;
-        }
-
-
 
 
     }
