@@ -25,11 +25,6 @@ public class BinarySearch {
             int middleValue = Math.floorDiv(highValue + lowValue, 2);
             int guess = sorted_array[middleValue];
 
-            System.out.println(lowValue); // 0
-            System.out.println(highValue); // 5
-            System.out.println(middleValue); // 2
-
-
             // check if the guess is correct
             if (guess == item) {
                 //  2 == 5?
