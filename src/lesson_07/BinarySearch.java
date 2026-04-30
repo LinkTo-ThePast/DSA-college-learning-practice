@@ -10,36 +10,30 @@ public class BinarySearch {
     int item;
 
     public int findNumber(int[] sorted_array, int item) {
-
         if (sorted_array.length == 0) {
-            throw new IllegalArgumentException("The sorted arrays needs to have at least one item. The array length provided was: " + sorted_array.length);
+            throw new IllegalArgumentException("The array needs to have at least one element!");
         }
 
-        // lowest item in the array
-        int lowValue = 0; // representing index 0 of the array
-        // select maximum possible value
-        int highValue = sorted_array.length - 1;
+        int initialPosition = 0;
+        int endingPosition = sorted_array.length - 1;
 
-        while (lowValue <= highValue) {
-            // search through in the middle of the array
-            int middleValue = Math.floorDiv(highValue + lowValue, 2);
-            int guess = sorted_array[middleValue];
+        while (initialPosition  <=  endingPosition) {
 
-            // check if the guess is correct
+            // middle position
+            int middlePositon = Math.floorDiv(initialPosition + endingPosition, 2);
+            int guess = sorted_array[middlePositon];
+
             if (guess == item) {
-                //  2 == 5?
-                return middleValue;
+                return middlePositon;
             }
 
-            // first search: item is greater than middle value, if so, increment low value up to middle value
-            if (guess < item) {
-                lowValue = middleValue + 1;
+            if (item < guess) {
+                endingPosition  = middlePositon - 1;
             } else {
-                highValue = middleValue - 1;
+                initialPosition = middlePositon + 1;
             }
         }
 
         return -1;
-
     }
 }
