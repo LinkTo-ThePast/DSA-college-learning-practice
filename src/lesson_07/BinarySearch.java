@@ -18,7 +18,12 @@ public class BinarySearch {
        int initialPositon = 0;
        int endingPosition = sorted_array.length - 1;
 
-
+       while (initialPositon >= endingPosition) {
+           int middlePosition = Math.floorDiv((initialPositon + endingPosition), 2);
+           int guess = sorted_array[guess];
+           // guess is equal to the value we are searching for
+           if (guess )
+       }
 
     }
 }
