@@ -10,30 +10,15 @@ public class BinarySearch {
     int item;
 
     public int findNumber(int[] sorted_array, int item) {
-        if (sorted_array.length == 0) {
-            throw new IllegalArgumentException("The array needs to have at least one element!");
-        }
+       if (sorted_array.length == 0) {
+           throw new IllegalArgumentException("Array must have at least one element.");
+       }
 
-        int initialPosition = 0;
-        int endingPosition = sorted_array.length - 1;
+       // selecting initial and ending index position
+       int initialPositon = 0;
+       int endingPosition = sorted_array.length - 1;
 
-        while (initialPosition  <=  endingPosition) {
 
-            // middle position
-            int middlePositon = Math.floorDiv(initialPosition + endingPosition, 2);
-            int guess = sorted_array[middlePositon];
 
-            if (guess == item) {
-                return middlePositon;
-            }
-
-            if (item < guess) {
-                endingPosition  = middlePositon - 1;
-            } else {
-                initialPosition = middlePositon + 1;
-            }
-        }
-
-        return -1;
     }
 }
