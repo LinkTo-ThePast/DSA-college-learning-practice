@@ -18,12 +18,23 @@ public class BinarySearch {
        int initialPositon = 0;
        int endingPosition = sorted_array.length - 1;
 
-       while (initialPositon >= endingPosition) {
+       while (initialPositon <= endingPosition) {
            int middlePosition = Math.floorDiv((initialPositon + endingPosition), 2);
-           int guess = sorted_array[guess];
-           // guess is equal to the value we are searching for
-           if (guess )
-       }
+           int guess = sorted_array[middlePosition];
 
+           // guess is equal to the value we are searching for
+           if (guess == item) {
+               return middlePosition;
+           }
+           else if (guess > item) {
+               endingPosition = middlePosition - 1;
+           }
+           else
+           {
+               initialPositon = middlePosition + 1;
+           }
+       }
+        // item was not found
+        return -1;
     }
 }
