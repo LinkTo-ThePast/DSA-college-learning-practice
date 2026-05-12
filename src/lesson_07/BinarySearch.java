@@ -14,5 +14,13 @@ public class BinarySearch {
         if (sorted_array.length == 0) {
             throw new IllegalArgumentException("The input array must contain at least one element.");
         }
+
+        // implementation approach
+        // select initial and ending position, so we can access to the middle position and with that, to the first guess
+        int initialPosition = 0;
+        int endingPosition = sorted_array.length - 1;
+
+        // iterate over the array and in each cycle, our guess is going to be right at the middle
+        int middlePosition = Math.floorDiv(initialPosition + endingPosition, 2);
     }
 }
