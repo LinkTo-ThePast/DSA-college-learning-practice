@@ -20,7 +20,32 @@ public class BinarySearch {
         int initialPosition = 0;
         int endingPosition = sorted_array.length - 1;
 
-        // iterate over the array and in each cycle, our guess is going to be right at the middle
-        int middlePosition = Math.floorDiv(initialPosition + endingPosition, 2);
+        // iterate until the initial position is reached by the ending position
+        while (initialPosition <= endingPosition)
+        {
+            // iterate over the array and in each cycle, our guess is going to be right at the middle
+            int middlePosition = Math.floorDiv(initialPosition + endingPosition, 2);
+            // find item just at the middle as first try or attempt
+            int guess = sorted_array[middlePosition];
+
+            // then we can compare
+            if (guess == item)
+            {
+                return middlePosition;
+            }
+            // if the guess is greater than the item, that means that any guess greater than the first guess is already invalid
+            // no need to try with other items located to the right of the first guess, thus we need to update the ending position to the left of the first guess
+            else if (guess > item)
+            {
+                endingPosition = middlePosition - 1;
+            }
+            else
+            {
+                initialPosition = middlePosition + 1;
+            }
+        }
+
+        // item was not present in the array, so return a -1
+        return  -1;
     }
 }
