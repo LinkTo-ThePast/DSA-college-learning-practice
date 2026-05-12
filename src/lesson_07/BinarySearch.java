@@ -10,7 +10,9 @@ public class BinarySearch {
     int item;
 
     public int findNumber(int[] sorted_array, int item) {
-       // array has to contain at least one item
-        if ()
+       // array has to contain at least one element
+        if (sorted_array.length == 0) {
+            throw new IllegalArgumentException("The input array must contain at least one element.");
+        }
     }
 }
