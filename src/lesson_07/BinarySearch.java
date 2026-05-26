@@ -16,7 +16,8 @@ public class BinarySearch {
         int initialPosition = 0;
         int endingPositon = sorted_array.length - 1;
 
-        while (initialPosition >= endingPositon) {
+        // TODO: investigate why this has log N complexity
+        while (initialPosition <= endingPositon) {
 
             int middlePosition = Math.floorDiv((initialPosition + endingPositon), 2);
             int guess = sorted_array[middlePosition];
@@ -24,6 +25,15 @@ public class BinarySearch {
             if (guess == item) {
                 return middlePosition;
             }
+
+            else if (guess < item) {
+                initialPosition = middlePosition + 1;
+            }
+            else {
+                endingPositon = middlePosition - 1;
+            }
         }
+        // case when item was not found
+        return -1;
     }
 }
