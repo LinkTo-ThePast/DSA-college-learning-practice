@@ -7,7 +7,7 @@ public class Main {
         LongestCommonPrefixV2 getPrefix = new LongestCommonPrefixV2();
 
         String[] words = {"car", "thalamus", "flight", "flower", "flow"};
-        String result = getPrefix.getCommonPrefix(words);
+        String result = getPrefix.getCommonPrefix(words);3
         System.out.println("Common prefix is " + result);
     }
 

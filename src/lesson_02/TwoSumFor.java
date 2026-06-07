@@ -9,11 +9,10 @@ public class TwoSumFor {
         // case 1. nums is empty or just one element, then early return
         if (nums.length <= 1 ) {
             return new int[]{};
-        }
+    }
 
-        // case 2. general case
-        // base case: nums = [2,4,5,1,6], target = 6
-        for(int i = 0; i < nums.length; i++) {
+        // base case: nums = [2,4,5,1,6], target = 6        // case 2. general case
+        for (int i = 0; i < nums.length; i++) {
             // left pointer = i
             int leftPointer = nums[i];
             System.out.println(nums[i]);
