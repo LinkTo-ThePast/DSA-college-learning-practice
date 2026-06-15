@@ -2,38 +2,46 @@ package lesson_04;
 
 public class GetLongestCommonPrefix {
     // {'catapult', 'cat', 'catastrophic'}
-    public String getCommonLongestPrefix(String[] words) {
-        // if no items in the input array, then return an empty string
-        if (words.length == 0) {
-            return "";
+    public String getCommonLongestPrefix(String[] words)
+    {
+        // exception: input from user type of error
+        if ( words == null  || words.length <=  1) {
+            throw new IllegalArgumentException("Empty arrays or with just one item are not allowed. Please, try again.");
         }
 
-        // initialize stopping index outside both loops
-        int stoppingIndex = 0;
-        // initialize boolean flag to stop outer loop
+        // initialize a finalIndex to use in substring method
+        int finalIndex = 0;
+        // shouldStop
         boolean shouldStop = false;
-        // selection an arbitrary string to compare with the rest of the strings
-        // outer loop definition: c = 0 -> 'c' ; c = 1 -> a : c = 2 -> 't'
-        for (int c = 0; c < words[0].length(); c++) {
 
-            // check for boolean flag to decide if continue with iterations
-            if (shouldStop) {
+        // approach: select an arbitrary string and iterate over all its characters
+        // in this case, arbitrary string == words[0]
+        // outer for cycle: keep track of arbitrary string characters
+        for (int i = 0; i < words[0].length(); i++)
+        {
+
+            if (shouldStop)
+            {
                 break;
             }
-            // inner loop definition:
-            for (int s = 0; s < words.length; s++) {
-                //  c -> 'c' -> [0: 'c' == 'c', 1: 'c' == 'c' ; 2: 'c' == 'c']
-                // c = 3 , 3 >= 3 -> break
-                if (c >= words[s].length() || (words[s].charAt(c) != words[0].charAt(c))) {
-                    stoppingIndex-= 1;
+
+             // inner for cycle: keep track of characters from all the remaining strings
+            for (int j = 0; j < words.length; j++)
+            {
+                // i = 0 and j = 0 --> 'c' / 'c' / 'c'
+                // i = 3, j = 3
+                if (i >= words[j].length() || (words[0].charAt(i) != words[j].charAt(i)))
+                {
+                    // current character of arbitrary string != current character of current string
+                    // if the cycle is being broken at this iteration, subtract by one finalIndex because current character is no longer part of a common prefix
+                    finalIndex -= 1;
                     shouldStop = true;
                     break;
                 }
+                finalIndex += 1;
             }
-            // 'c' -> [0,1,2]
-            stoppingIndex += 1;
         }
 
-        return words[0].substring(0, stoppingIndex);
-}
+        return words[0].substring(0, finalIndex);
+    }
 }
