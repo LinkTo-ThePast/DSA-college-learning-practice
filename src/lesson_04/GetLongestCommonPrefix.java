@@ -17,6 +17,8 @@ public class GetLongestCommonPrefix {
         // approach: select an arbitrary string and iterate over all its characters
         // in this case, arbitrary string == words[0]
         // outer for cycle: keep track of arbitrary string characters
+
+        // all strings in the array (n)
         for (int i = 0; i < words[0].length(); i++)
         {
 
