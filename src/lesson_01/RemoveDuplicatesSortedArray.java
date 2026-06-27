@@ -8,10 +8,17 @@ public class RemoveDuplicatesSortedArray {
 
     public int getTotalUniqueElements(int[] nums)
     {
+        int[] uniqueNums = {};
+
         for (int i = 0; i < nums.length; i++)
         {
             int currentItem = nums[i];
             int nextItem = nums[i+1];
+
+            if (currentItem != nextItem)
+            {
+
+            }
         }
 
         return 0;
