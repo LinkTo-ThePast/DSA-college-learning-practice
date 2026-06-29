@@ -16,15 +16,15 @@ public class RemoveDuplicatesSortedArray {
         for (int i = 1; i < nums.length; i++)
         {
             // i = 1 -> 1 != 1 ? FALSE
-            // i = 3
+            // i = 3 -> 2 != 1
             if (nums[i] != nums[i-1]) {
-
-                nums[pointer] = i;
+                // nums[pointer] = nums[3] = 2;
+                nums[pointer] = nums[i];
+                pointer++;
             }
         }
-
-
-        return 0;
+        k = pointer;
+        return k;
     }
 
 
