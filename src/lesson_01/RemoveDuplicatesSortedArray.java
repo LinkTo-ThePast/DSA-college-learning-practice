@@ -3,31 +3,23 @@ package lesson_01;
 
 public class RemoveDuplicatesSortedArray {
 
-    // data structure used in this problem
-    int[] nums = {1,1,1,2,2,2,3,3,3,4};
+    int[] numsTestOne = {0,0,1,1,1,2,2,2,3,4,5};
 
-    int k; // final K is going to represent total unique elements within the array
+    int k;
 
     public int getTotalUniqueElements(int[] nums)
     {
-        // structure to study: pointer
-        int pointer = 1;
+        int leftPointer = 1;
 
-        for (int i = 1; i < nums.length; i++)
+        for (int i = 0; i < nums.length; i++)
         {
-            // i = 1 -> 1 != 1 ? FALSE
-            // i = 3 -> 2 != 1
             if (nums[i] != nums[i-1]) {
-                // nums[pointer] = nums[3] = 2;
-                nums[pointer] = nums[i];
-                pointer++;
+                nums[leftPointer] = nums[i];
+                leftPointer++;
             }
         }
-        k = pointer;
+        k = leftPointer;
         return k;
     }
-
-
-
 
 }
