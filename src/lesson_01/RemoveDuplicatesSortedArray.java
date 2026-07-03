@@ -1,25 +1,37 @@
 package lesson_01;
 
-
 public class RemoveDuplicatesSortedArray {
 
-    int[] numsTestOne = {0,0,1,1,1,2,2,2,3,4,5};
+    // define properties
+    int[] nums;
+    // method to return the total unique elements within the array
+    // and modify the array in place, not creating a new one
 
-    int k;
+    // input example:
+    // NON - DECREASING ORDER == ASCENDING ORDER with == not going to decrease, is going to increment, but also it can contain repeated or equal numbers
+    // CONSTRAINTS: at leats one item, and only natural numbers
+    // int[] test = {0,0,1,1,1,2,2,3,3,4};
 
     public int getTotalUniqueElements(int[] nums)
     {
-        int leftPointer = 1;
+        // final unique elements
+        int differentItems = 1;
 
-        for (int i = 0; i < nums.length; i++)
+        // strictly just one element
+        if (nums.length == 0)
         {
-            if (nums[i] != nums[i-1]) {
-                nums[leftPointer] = nums[i];
-                leftPointer++;
+            throw new IllegalArgumentException("Input array cannot be empty!");
+        }
+
+        for (int i = 1; i < nums.length; i++)
+        {
+            if (nums[i] != nums[i-1])
+            {
+                // counting that we have two different elements
+                differentItems++;
             }
         }
-        k = leftPointer;
-        return k;
-    }
 
+        return differentItems;
+    }
 }
