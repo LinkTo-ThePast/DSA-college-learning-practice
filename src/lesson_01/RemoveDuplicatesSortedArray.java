@@ -1,5 +1,7 @@
 package lesson_01;
 
+import java.util.Arrays;
+
 public class RemoveDuplicatesSortedArray {
 
     // define properties
@@ -15,7 +17,10 @@ public class RemoveDuplicatesSortedArray {
     public int getTotalUniqueElements(int[] nums)
     {
         // final unique elements
-        int differentItems = 1;
+        int uniqueItems;
+
+        // pointer
+        int leftPointer = 1;
 
         // strictly just one element
         if (nums.length == 0)
@@ -27,11 +32,18 @@ public class RemoveDuplicatesSortedArray {
         {
             if (nums[i] != nums[i-1])
             {
-                // counting that we have two different elements
-                differentItems++;
+                nums[leftPointer] =  nums[i];
+                System.out.println(Arrays.toString(nums));
+                leftPointer++;
             }
         }
+        uniqueItems = leftPointer;
 
-        return differentItems;
+        for (int i = uniqueItems; i < nums.length; i++) {
+            nums[i] = 0;
+            System.out.println(Arrays.toString(nums));
+        }
+
+        return uniqueItems;
     }
 }
