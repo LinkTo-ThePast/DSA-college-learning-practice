@@ -28,9 +28,14 @@ public class CountingOperations {
         for (int i = 0; i < sortedArray.length; i++)
         // 1 variable assignation, 1 boolean comparison, one increment + one assignation = 4 fundamental operations to initialize the for cycle
         {
-
+            // 1 boolean comparison
+            if (sortedArray[i] == objective)
+            {
+                return true;
+            }
         }
-
+        // 1 fundamental operation = exit/salida
+        return false;
     }
 
 }
