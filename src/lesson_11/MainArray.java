@@ -2,7 +2,6 @@ package lesson_11;
 
 public class MainArray {
 
-
     // interface I want to represent here:
     // a static sequence of integers
     // support the following operations:
@@ -23,7 +22,17 @@ public class MainArray {
     // ability power
     int thirdItem = 18;
 
-    int[] statsLevels = new int[] {23,17,18};
+    // multiplier
+    int FINAL_MULTIPLIER = 2;
+    // using static array
+    int[] statsLevels = {23,17,18};
 
+    private void buffProcess(int[] statsLevels) {
+
+        for (int i = 0; i < statsLevels.length; i++)
+        {
+            statsLevels[i] = statsLevels[i] * FINAL_MULTIPLIER;
+        }
+    }
 
 }
