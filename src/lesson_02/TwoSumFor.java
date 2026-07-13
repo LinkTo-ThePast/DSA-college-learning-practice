@@ -2,12 +2,15 @@ package lesson_02;
 
 public class TwoSumFor {
 
+    // fixed sized or static array,
+    // TODO: how does the computer know how many space in address to allocate if the array is not initialized?
     private int[] nums;
     private int target;
 
     public int[] twoSum(int[] nums, int target) {
         // case 1. nums is empty or just one element, then early return
         if (nums.length <= 1 ) {
+            // return an empty array, fixed size
             return new int[]{};
     }
 
@@ -29,6 +32,6 @@ public class TwoSumFor {
             }
         }
 
-        // case 3. any solution was found, return an empty array
+        // case 3. no solution was found, return an empty array
         return new int[]{};
 }}
