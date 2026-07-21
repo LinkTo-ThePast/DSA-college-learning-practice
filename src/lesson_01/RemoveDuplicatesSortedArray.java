@@ -11,15 +11,30 @@ public class RemoveDuplicatesSortedArray {
      * PUBLIC METHOD:
      * @param nums: array of integers, sorted in non-decreasing order
      * @return total count of unique elements within array
-     * CONSTRAINT: at least one element.
+     * CONSTRAINT: at least TWO element.
      */
     public int getTotalUniqueElements(int[] nums) {
-        if (nums.length == 0)
+
+        // auxiliary properties
+        int uniqueElements;
+        int leftPointer = 1;
+
+        if (nums.length <= 1)
         {
-            throw new IllegalArgumentException("Please, use arrays that at least contains one element.");
+            throw new IllegalArgumentException("Please, use arrays that at least contains two elements.");
         }
 
-
+        for (int i = 1; i < nums.length; i++)
+        {
+            if (nums[i] != nums[i-1])
+            {
+                nums[leftPointer] = nums[i];
+                leftPointer++;
+            }
+        }
+        // the time we found a different item, and leftPointer was incremented is also equal the unique items we found within the array
+        uniqueElements = leftPointer;
+        return  uniqueElements;
     }
 
 }
