@@ -1,26 +1,25 @@
 package lesson_01;
 
-
 public class RemoveDuplicatesSortedArray {
 
-    int[] nuns;
+    // properties
+    // consideration: sorted array, in this case, non-decreasing order
+    // data stucture used in this exercise: static array -> solves static sequence
+    int[] nums;
 
-    public int returnNumberOfUniqueItems(int[] nums) {
-
-        int uniqueItems;
-        int leftPointer = 1;
-
-        for (int i = 1; i < nums.length; i++)
+    /**
+     * PUBLIC METHOD:
+     * @param nums: array of integers, sorted in non-decreasing order
+     * @return total count of unique elements within array
+     * CONSTRAINT: at least one element.
+     */
+    public int getTotalUniqueElements(int[] nums) {
+        if (nums.length == 0)
         {
-            if (nums[i] != nums[i-1])
-            {
-                nums[leftPointer] = nums[i];
-                leftPointer++;
-            }
+            throw new IllegalArgumentException("Please, use arrays that at least contains one element.");
         }
 
-        uniqueItems = leftPointer;
-        return leftPointer;
 
     }
+
 }
