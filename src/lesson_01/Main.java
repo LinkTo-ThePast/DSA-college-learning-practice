@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         // testing
-        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+        int[] nums = {0,1,1,1,1,2,2,3,3,4};
 
         RemoveDuplicatesSortedArray getUniqueItems = new RemoveDuplicatesSortedArray();
         int uniqueItems = getUniqueItems.getTotalUniqueElements(nums);
