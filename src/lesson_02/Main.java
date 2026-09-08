@@ -10,7 +10,7 @@ public class Main {
         // test case
         int[] numsCase = {2,5,5,11};
 
-        int[] resultIndices = twoSumFor.twoSum(numsCase, 10);
+        int[] resultIndices = twoSumFor.getIndices(numsCase, 10);
 
         System.out.println(Arrays.toString(resultIndices));
     }

@@ -1,37 +1,39 @@
 package lesson_02;
 
+
 public class TwoSumFor {
 
-    // fixed sized or static array,
-    // TODO: how does the computer know how many space in address to allocate if the array is not initialized?
-    private int[] nums;
-    private int target;
+    // ATTRIBUTES
+    // if the addition of two elements within the array, yield the objective, then return the indices of those numbers
+    int objective;
+    int nums[];
 
-    public int[] twoSum(int[] nums, int target) {
-        // case 1. nums is empty or just one element, then early return
-        if (nums.length <= 1 ) {
-            // return an empty array, fixed size
-            return new int[]{};
-    }
-
-        // base case: nums = [2,4,5,1,6], target = 6        // case 2. general case
-        for (int i = 0; i < nums.length; i++) {
-            // left pointer = i
-            int leftPointer = nums[i];
-            System.out.println(nums[i]);
-            // second or right pointer is j
-            for (int j = i + 1; j < nums.length; j++) {
-                int rightPointer = nums[j];
-                System.out.println(nums[j]);
-                System.out.println("Adding up: " + nums[i] + " + " + nums[j]);
-                System.out.println("Indices: " + i + j);
-                if (leftPointer + rightPointer != target) {
-                    continue;
-                }
-                return new int[]{i,j};
-            }
+    /**
+     *
+     * @param nums: a non-empty static array of integers
+     * @param objective: an integer objective
+     * @return the indices of those two elements that when add up, the result is the objective integer
+     */
+    public int[] getIndices(int[] nums, int objective)
+    {
+        if (nums.length == 0)
+        {
+            throw new IllegalArgumentException("Empty arrays are not allowed!");
         }
+        // worst case: algorithm must iterate over all the N elements, hence, the upper bound O(n) that is going to define or contain the complexity function f(n) is O(n)
+        // hence: f(n) <= O(n) -> Linear running time complexity
+        for (int i = 0; i < nums.length; i++)
+        {
+            for (int j = i+1; j < nums.length; j++)
+            {
+                if (nums[i] + nums[j] == objective)
+                {
+                    return new int[]{i, i+1};
+                }
+            }
 
-        // case 3. no solution was found, return an empty array
-        return new int[]{};
-}}
+
+        }
+         return new int[]{};
+    }
+}
