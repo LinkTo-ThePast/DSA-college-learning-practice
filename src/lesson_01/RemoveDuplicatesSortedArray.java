@@ -28,6 +28,11 @@ public class RemoveDuplicatesSortedArray {
         // fundamental operation (2) => boolean comparison
         if (nums.length < 2)
         {
+            throw new IllegalArgumentException("A two element length array as minimum is required!");
+        }
+
+        if (nums.length < 2)
+        {
             throw new IllegalArgumentException("Static array needs to have at least two elements.");
         }
 
@@ -37,6 +42,11 @@ public class RemoveDuplicatesSortedArray {
         if (nums[1] < nums[0])
         {
             throw new IllegalArgumentException("The input array must be sorted in non-decreasing order.");
+        }
+
+        if (nums[1] < nums[0])
+        {
+            throw new IllegalArgumentException("Array must be configured in a non-decreasing order");
         }
 
 
