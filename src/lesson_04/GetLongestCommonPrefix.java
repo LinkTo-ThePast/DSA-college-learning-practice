@@ -21,6 +21,11 @@ public class GetLongestCommonPrefix {
         // outer for cycle: iterating over the characters of an arbitrary string = words[0]
         for (int c = 0; c < words[0].length(); c++)
         {
+            if (thereIsCommonPrefix)
+            {
+                break;
+            }
+
             for (int j = 0; j < words.length; j++)
             {
                 // 3) compare characters: if they are not the same, then there is no longer common prefix
