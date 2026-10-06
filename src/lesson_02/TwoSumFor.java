@@ -20,20 +20,6 @@ public class TwoSumFor {
         {
             throw new IllegalArgumentException("Empty arrays are not allowed!");
         }
-        // worst case: algorithm must iterate over all the N elements, hence, the upper bound O(n) that is going to define or contain the complexity function f(n) is O(n)
-        // hence: f(n) <= O(n) -> Linear running time complexity
-        for (int i = 0; i < nums.length; i++)
-        {
-            for (int j = i+1; j < nums.length; j++)
-            {
-                if (nums[i] + nums[j] == objective)
-                {
-                    return new int[]{i, i+1};
-                }
-            }
-
-
-        }
-         return new int[]{};
+   
     }
 }
