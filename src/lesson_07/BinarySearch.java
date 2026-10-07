@@ -1,13 +1,8 @@
 package lesson_07;
 
-/**
- * Takes a sorted array and an objective/number to find
- * @param nums: sorted array of integers
- * @param objective: integer to find within the array
- * @return index position of the objective
- */
+
 public class BinarySearch {
-    // data structure used in this problem
+    // data structure used in this problem -> static sequence
     int[] nums;
     int objective;
 
@@ -19,28 +14,24 @@ public class BinarySearch {
 
         while (leftPointer <= rightPointer)
         {
-            int middlePosition = Math.floorDiv(leftPointer + rightPointer, 2);
+
+            int middlePosition = Math.floorDiv((leftPointer + rightPointer), 2);
             int guess = nums[middlePosition];
 
-            // if guess is equal to objective, return index
-            if (guess == objective)
-            {
+            // success case: guess is equal to objective
+            if (guess == objective) {
                 return middlePosition;
             }
-
-            // if guess is less than objective, increment and update left pointer == initial positon
-            else if (guess < objective)
-            {
+            // case 1: guess is greater than objective, hence we update right pointer
+            else if (guess >  objective) {
+                rightPointer = middlePosition - 1;
+            }
+            // case 2: guess is less than objective, hence we update left pointer
+            else {
                 leftPointer = middlePosition + 1;
             }
-
-            else
-            {
-              //  guess is greater than objective, decrease and update right pointer == ending position
-              rightPointer = middlePosition - 1;
-            }
         }
-        // if the objective was not in the array, then return -1
+
         return -1;
     }
 

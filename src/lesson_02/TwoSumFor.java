@@ -20,6 +20,6 @@ public class TwoSumFor {
         {
             throw new IllegalArgumentException("Empty arrays are not allowed!");
         }
-   
+        return new int[]{};
     }
 }

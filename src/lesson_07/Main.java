@@ -9,7 +9,7 @@ public class Main {
 
         BinarySearch binarySearch = new BinarySearch();
 
-        int getPosition = binarySearch.findNumber(sorted_array, 5);
+        int getPosition = binarySearch.findNumber(sorted_array, 1);
         System.out.println("The position of the objective item is: " + getPosition);
 
     }
