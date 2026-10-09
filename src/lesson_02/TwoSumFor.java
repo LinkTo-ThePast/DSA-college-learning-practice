@@ -10,7 +10,7 @@ public class TwoSumFor {
 
     /**
      *
-     * @param nums: a non-empty static array of integers
+     * @param nums: a non-empty static array of integers, non-decreasing order
      * @param objective: an integer objective
      * @return the indices of those two elements that when add up, the result is the objective integer
      */
@@ -20,6 +20,23 @@ public class TwoSumFor {
         {
             throw new IllegalArgumentException("Empty arrays are not allowed!");
         }
-        return new int[]{};
+
+        // applying two pointers strategy
+        // initialize a right pointer at the final position:
+        int leftPointer = 0;
+        int rightPointer = nums.length - 1;
+        while (rightPointer > leftPointer) {
+            if (nums[leftPointer] + nums[rightPointer] == objective) {
+                return new int[]{leftPointer, rightPointer};
+            }
+            else if (nums[leftPointer] + nums[rightPointer] > objective) {
+                rightPointer--;
+            }
+            else {
+               leftPointer++;
+            }
+        }
+
+        return new  int[]{};
     }
 }

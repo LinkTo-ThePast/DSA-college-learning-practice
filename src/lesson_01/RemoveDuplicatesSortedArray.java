@@ -44,13 +44,11 @@ public class RemoveDuplicatesSortedArray {
             throw new IllegalArgumentException("The input array must be sorted in non-decreasing order.");
         }
 
-        if (nums[1] < nums[0])
-        {
-            throw new IllegalArgumentException("Array must be configured in a non-decreasing order");
-        }
 
-
+        // using two pointers technique to solve the problem
+        // keep track of order and place the different numbers
         int leftPointer = 1;
+        // nums[1 =  leftPointer ] ---> the array at least have two elements, that's why we initialize in the second position of the array
 
         // 1. begin to iterate array
         // iterate over a static array, in the worst case scenario, takes N iterations
@@ -58,15 +56,15 @@ public class RemoveDuplicatesSortedArray {
         // fundamental operation for an array of arr.length == 5, then N  x 3 respective operations inside each iteration = 15 fundamental operations
         // in terms of big O notation, kg(n) being a asymptotic upper bound defined by this worst scenario, this algorithm is never going to take MORE running time
         // that kg(n) of 15 fundamental operations?
-        for (int i = 1; i < nums.length; i++)
-        {
+        for (int i = 1; i < nums.length; i++) {
+            // i = right pointer =keep track of different numbers through the array
             if (nums[i] != nums[i-1])
             {
+                // we have found two different elements: increment the count of different elements within the array and put it in the correct place
                 nums[leftPointer] = nums[i];
                 leftPointer++;
             }
         }
-
         return leftPointer;
     }
 }

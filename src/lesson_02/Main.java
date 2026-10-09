@@ -8,9 +8,9 @@ public class Main {
         TwoSumFor twoSumFor = new TwoSumFor();
 
         // test case
-        int[] numsCase = {2,5,5,11};
+        int[] numsCase = {2,3,4,5,6};
 
-        int[] resultIndices = twoSumFor.getIndices(numsCase, 10);
+        int[] resultIndices = twoSumFor.getIndices(numsCase, 5);
 
         System.out.println(Arrays.toString(resultIndices));
     }
