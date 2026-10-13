@@ -25,7 +25,9 @@ public class TwoSumFor {
         // initialize a right pointer at the final position:
         int leftPointer = 0;
         int rightPointer = nums.length - 1;
+        // pointers are going to converge at the middle
         while (rightPointer > leftPointer) {
+
             if (nums[leftPointer] + nums[rightPointer] == objective) {
                 return new int[]{leftPointer, rightPointer};
             }
