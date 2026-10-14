@@ -16,29 +16,34 @@ public class TwoSumFor {
      */
     public int[] getIndices(int[] nums, int objective)
     {
+        // safety check
         if (nums.length == 0)
         {
-            throw new IllegalArgumentException("Empty arrays are not allowed!");
+            throw new IllegalArgumentException("PLEASE, introduce only non-empty arrays");
         }
 
-        // applying two pointers strategy
-        // initialize a right pointer at the final position:
+        // Strategy 2): using two pointers in just one cycle, the array must be sorted (for example: non-decreasing order)as previous condition
         int leftPointer = 0;
         int rightPointer = nums.length - 1;
-        // pointers are going to converge at the middle
-        while (rightPointer > leftPointer) {
 
+        // when pointers begin in opposites sided, they converge towards the middle of the array
+        while (leftPointer < rightPointer)
+        {
+            // check first for the objective
             if (nums[leftPointer] + nums[rightPointer] == objective) {
-                return new int[]{leftPointer, rightPointer};
+                return new int[]{leftPointer,rightPointer};
             }
-            else if (nums[leftPointer] + nums[rightPointer] > objective) {
+            // case 1. sum is less than the objective
+            else if (nums[leftPointer] + nums[rightPointer] < objective) {
+                leftPointer++;
+            }
+            // case 2. sum is greater than objective
+            else {
                 rightPointer--;
             }
-            else {
-               leftPointer++;
-            }
         }
+        // return empty array if objective was not found
+        return new int[]{};
 
-        return new  int[]{};
     }
 }
