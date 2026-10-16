@@ -1,38 +1,44 @@
-package lesson_07;
+ package lesson_07;
 
 
 public class BinarySearch {
-    // data structure used in this problem -> static sequence
-    int[] nums;
+    // properties
+    int nums[];
     int objective;
 
+
     public int findNumber(int[] nums, int objective) {
-        // initial position within the array
+
+        if (nums.length == 0)
+        {
+            throw new IllegalArgumentException("Empty arrays are not allowed!");
+        }
+
+        // strategy: utilize left and right pointers strategy
+
+        // left pointer begins at the beginning of the array --> index zero
         int leftPointer = 0;
-        // ending position within the array
+        // right pointer begins at the end of the array -->
         int rightPointer = nums.length - 1;
 
-        while (leftPointer <= rightPointer)
-        {
+        while (leftPointer <= rightPointer) {
 
             int middlePosition = Math.floorDiv((leftPointer + rightPointer), 2);
             int guess = nums[middlePosition];
-
-            // success case: guess is equal to objective
+            // 1) we found the objective
             if (guess == objective) {
-                return middlePosition;
+                return guess;
             }
-            // case 1: guess is greater than objective, hence we update right pointer
-            else if (guess >  objective) {
-                rightPointer = middlePosition - 1;
-            }
-            // case 2: guess is less than objective, hence we update left pointer
-            else {
+            // 2) the guess is less than the objective
+            else if (guess < objective) {
                 leftPointer = middlePosition + 1;
             }
+            // 3) the guess is greater than the objective
+            else {
+                rightPointer = middlePosition - 1;
+            }
         }
-
+        // while cycle completes and no return, then return -1 to indicate that the objective was not found in the array
         return -1;
     }
-
 }
